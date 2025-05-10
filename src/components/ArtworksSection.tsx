@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
@@ -70,45 +71,77 @@ const artworks: Artwork[] = [
   }
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
 const ArtworksSection = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
 
   return (
     <section id="artworks" className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="text-4xl font-serif font-bold mb-4 text-rizal-navy">Notable Artworks</h2>
           <p className="text-lg max-w-3xl mx-auto text-gray-700">
             Explore José Rizal's artistic legacy through these significant works that showcase his versatility and talent.
           </p>
-        </div>
+        </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           {artworks.map((artwork) => (
-            <Card 
-              key={artwork.id} 
-              className="artwork-card overflow-hidden border-none shadow-md cursor-pointer"
-              onClick={() => setSelectedArtwork(artwork)}
-            >
-              <div className="h-64 w-full overflow-hidden">
-                <img 
-                  src={artwork.image} 
-                  alt={artwork.title} 
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-xl font-serif font-bold">{artwork.title}</h3>
-                <p className="text-gray-600">{artwork.year}</p>
-                <div className="flex items-center mt-2">
-                  <span className="inline-block bg-rizal-light-blue px-3 py-1 text-sm rounded-full text-rizal-navy">
-                    {artwork.medium}
-                  </span>
+            <motion.div key={artwork.id} variants={item}>
+              <Card 
+                className="artwork-card overflow-hidden border-none shadow-md cursor-pointer"
+                onClick={() => setSelectedArtwork(artwork)}
+              >
+                <motion.div 
+                  className="h-64 w-full overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img 
+                    src={artwork.image} 
+                    alt={artwork.title} 
+                    className="h-full w-full object-cover"
+                  />
+                </motion.div>
+                <div className="p-5">
+                  <h3 className="text-xl font-serif font-bold">{artwork.title}</h3>
+                  <p className="text-gray-600">{artwork.year}</p>
+                  <div className="flex items-center mt-2">
+                    <span className="inline-block bg-rizal-light-blue px-3 py-1 text-sm rounded-full text-rizal-navy">
+                      {artwork.medium}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <Dialog open={!!selectedArtwork} onOpenChange={() => setSelectedArtwork(null)}>
@@ -118,7 +151,12 @@ const ArtworksSection = () => {
               <DialogTitle className="text-2xl font-serif">{selectedArtwork.title} ({selectedArtwork.year})</DialogTitle>
               <DialogDescription className="text-sm text-gray-500">{selectedArtwork.medium}</DialogDescription>
             </DialogHeader>
-            <div className="grid md:grid-cols-2 gap-6 mt-4">
+            <motion.div 
+              className="grid md:grid-cols-2 gap-6 mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <div className="overflow-hidden rounded-md">
                 <img 
                   src={selectedArtwork.image} 
@@ -143,7 +181,7 @@ const ArtworksSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </DialogContent>
         )}
       </Dialog>

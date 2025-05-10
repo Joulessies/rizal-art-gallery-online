@@ -2,10 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
+import ArtworksSection from '@/components/ArtworksSection';
+import FeaturedArtwork from '@/components/FeaturedArtwork';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const Artworks = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -14,11 +15,12 @@ const Index = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <HeroSection />
+        <ArtworksSection />
+        <FeaturedArtwork />
       </motion.main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Artworks;

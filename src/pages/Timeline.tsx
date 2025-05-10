@@ -2,10 +2,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
+import TimelineSection from '@/components/TimelineSection';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const Timeline = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -14,11 +14,11 @@ const Index = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <HeroSection />
+        <TimelineSection />
       </motion.main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Timeline;
