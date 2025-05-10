@@ -17,8 +17,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      // Removed the direction property that was causing the build error
-      gestureDirection: 'vertical',
+      // Removed gestureDirection property as it's not supported
       smooth: true,
       smoothTouch: false,
       touchMultiplier: 2,
