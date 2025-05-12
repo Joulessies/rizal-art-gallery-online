@@ -17,9 +17,7 @@ const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      // Removed gestureDirection property as it's not supported
-      smooth: true,
-      smoothTouch: false,
+      // Removed smooth and smoothTouch properties as they're not supported in this version
       touchMultiplier: 2,
     });
 

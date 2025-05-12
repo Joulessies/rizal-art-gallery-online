@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1617552839336-4ce20ebe8918?q=80&w=2069')", 
+          backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/b/b0/Jose_Rizal_self_portrait_1883.jpg')", 
           filter: "brightness(0.5)"
         }}
       />

@@ -27,11 +27,11 @@ const FeaturedArtwork = () => {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-serif font-bold mb-6">Featured Artwork: <span className="text-rizal-gold">The Study of Paris</span></h2>
+            <h2 className="text-4xl font-serif font-bold mb-6">Featured Artwork: <span className="text-rizal-gold">The Triumph of Science Over Death</span></h2>
             <p className="mb-6 text-gray-300">
-              Completed in 1886 during his time in Europe, this rarely seen watercolor painting showcases Rizal's
-              mastery of light and perspective. The piece depicts the bustling streets of Paris, capturing both
-              the architecture and the spirit of the city that influenced his artistic and political thinking.
+              This remarkable sculpture created in 1890 during Rizal's exile in Dapitan represents his philosophy on life and death.
+              The sculpture depicts a naked youth with raised arms holding a torch, symbolizing science and knowledge overcoming death,
+              represented by the skull beneath the youth's foot.
             </p>
             <ul className="space-y-3 mb-8 text-gray-300">
               {[0, 1, 2, 3].map((i) => (
@@ -46,10 +46,10 @@ const FeaturedArtwork = () => {
                 >
                   <span className="text-rizal-gold mr-2">•</span>
                   <span>
-                    {i === 0 ? 'Created using watercolor on special imported paper' :
-                     i === 1 ? 'One of the few urban landscapes in Rizal\'s collection' :
-                     i === 2 ? 'Restored in 1998 by the National Museum conservation team' :
-                     'Shows influence of European impressionist techniques'}
+                    {i === 0 ? 'Sculpted from clay during his exile in Dapitan' :
+                     i === 1 ? 'Represents Rizal\'s scientific training as a physician' :
+                     i === 2 ? 'One of his most philosophical artistic works' :
+                     'Currently housed at the National Museum of the Philippines'}
                   </span>
                 </motion.li>
               ))}
@@ -81,13 +81,13 @@ const FeaturedArtwork = () => {
             whileHover={{ scale: 1.02 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1568662550477-8659242fdbba?q=80&w=1974" 
-              alt="The Study of Paris by José Rizal" 
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Triumph_of_Science_over_Death.jpg/640px-Triumph_of_Science_over_Death.jpg" 
+              alt="The Triumph of Science Over Death by José Rizal" 
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <div className="text-sm text-rizal-gold">1886, Watercolor on Paper</div>
-              <h3 className="font-serif font-semibold text-xl">The Study of Paris</h3>
+              <div className="text-sm text-rizal-gold">1890, Clay Sculpture</div>
+              <h3 className="font-serif font-semibold text-xl">The Triumph of Science Over Death</h3>
             </div>
           </motion.div>
         </div>

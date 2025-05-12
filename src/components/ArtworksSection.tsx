@@ -35,18 +35,18 @@ const artworks: Artwork[] = [
   },
   {
     id: 3,
-    title: "View of Lake Como",
-    year: "1887",
-    image: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809",
-    description: "Painted during Rizal's travels in Italy, this landscape showcases his ability to capture natural beauty with remarkable detail and atmospheric perspective.",
-    medium: "Watercolor on paper",
+    title: "Sketch of a Woman",
+    year: "1884",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Jose_Rizal_-_Mi_Primera_Inspiracion%2C_1874.jpg",
+    description: "This elegant sketch demonstrates Rizal's talent for capturing the female form. Created during his European studies, it shows his growing artistic confidence.",
+    medium: "Charcoal on paper",
     location: "Rizal Museum, Calamba"
   },
   {
     id: 4,
     title: "Portrait of Father Guerrico",
     year: "1885",
-    image: "https://images.unsplash.com/photo-1541367777708-7aaff3a49db8",
+    image: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/jose-rizal-celestial-images.jpg",
     description: "A detailed portrait of the Jesuit priest who was one of Rizal's teachers at the Ateneo Municipal de Manila, showing his skill in portraiture.",
     medium: "Charcoal on paper",
     location: "Ateneo de Manila University"
@@ -55,7 +55,7 @@ const artworks: Artwork[] = [
     id: 5,
     title: "Dapitan Girls",
     year: "1895",
-    image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92",
+    image: "https://www.joserizal.ph/im/sk/sk03.jpg",
     description: "Created during his exile in Dapitan, this sketch captures local young women in their traditional attire, demonstrating Rizal's interest in documenting Filipino culture.",
     medium: "Ink on paper",
     location: "Rizal Shrine, Dapitan"
@@ -64,10 +64,37 @@ const artworks: Artwork[] = [
     id: 6,
     title: "Dr. Antonio Paterno",
     year: "1886",
-    image: "https://images.unsplash.com/photo-1563089145-599997674d42",
+    image: "https://www.joserizal.ph/im/sk/sk04.jpg",
     description: "A portrait of Filipino diplomat and lawyer Antonio Paterno, showcasing Rizal's talent for capturing the personality of his subjects.",
     medium: "Oil on canvas",
     location: "Private Collection"
+  },
+  {
+    id: 7,
+    title: "The Triumph of Science Over Death",
+    year: "1890",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Triumph_of_Science_over_Death.jpg/640px-Triumph_of_Science_over_Death.jpg",
+    description: "A sculpture depicting a naked youth with raised arms holding a torch. Science, represented by the torch, triumphs over death, represented by the skull under the youth's foot.",
+    medium: "Clay sculpture",
+    location: "National Museum of the Philippines"
+  },
+  {
+    id: 8,
+    title: "The Monkey and the Turtle",
+    year: "1885",
+    image: "https://www.joserizal.ph/im/sk/sk02.jpg",
+    description: "An illustration for his children's fable based on a Filipino folk tale. The drawing shows Rizal's playful side and his interest in children's education.",
+    medium: "Ink on paper",
+    location: "Rizal Library Collection"
+  },
+  {
+    id: 9,
+    title: "View of Manila",
+    year: "1880",
+    image: "https://www.joserizal.ph/im/sk/sk01.jpg",
+    description: "A panoramic sketch of Manila showing the city skyline and bay. This work demonstrates Rizal's skill with landscapes and architectural drawing.",
+    medium: "Watercolor on paper",
+    location: "Rizal Museum, Manila"
   }
 ];
 
