@@ -9,30 +9,32 @@ interface SmoothScrollProps {
 export const useLenis = () => {
   const [lenis, setLenis] = useState<Lenis | null>(null);
   
-  return { lenis };
-};
-
-const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
   useEffect(() => {
-    const lenis = new Lenis({
+    const lenisInstance = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      // Removed smooth and smoothTouch properties as they're not supported in this version
       touchMultiplier: 2,
     });
 
     function raf(time: number) {
-      lenis.raf(time);
+      lenisInstance.raf(time);
       requestAnimationFrame(raf);
     }
     
     requestAnimationFrame(raf);
+    setLenis(lenisInstance);
     
     return () => {
-      lenis.destroy();
+      lenisInstance.destroy();
     };
   }, []);
+  
+  return { lenis };
+};
 
+const SmoothScroll: React.FC<SmoothScrollProps> = ({ children }) => {
+  const { lenis } = useLenis();
+  
   return <>{children}</>;
 };
 

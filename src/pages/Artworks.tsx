@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import ArtworksSection from '@/components/ArtworksSection';
+import WrittenWorksSection from '@/components/WrittenWorksSection';
 import FeaturedArtwork from '@/components/FeaturedArtwork';
 import Footer from '@/components/Footer';
 
@@ -30,7 +31,7 @@ const Artworks = () => {
           <h1 className="museum-heading text-4xl md:text-5xl mb-4 text-rizal-navy">Exhibition Gallery</h1>
           <div className="h-0.5 w-24 bg-rizal-gold mx-auto"></div>
           <p className="mt-6 text-gray-600 max-w-2xl mx-auto font-serif">
-            This collection features the artistic works of José Rizal, showcasing his talent and vision beyond his literary accomplishments.
+            This collection features both the artistic and literary works of José Rizal, showcasing his talent and vision beyond his historical significance.
           </p>
         </motion.div>
       </motion.div>
@@ -40,6 +41,7 @@ const Artworks = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <ArtworksSection />
+        <WrittenWorksSection />
         <FeaturedArtwork />
       </motion.main>
       <Footer />
