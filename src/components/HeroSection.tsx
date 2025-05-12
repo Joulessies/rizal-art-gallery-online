@@ -21,16 +21,16 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4"
+            className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-amber-300 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             José Rizal:<br/>
-            <span className="text-rizal-gold">The Artist Behind The Hero</span>
+            <span className="text-amber-400">The Artist Behind The Hero</span>
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-white mb-8 font-light"
+            className="text-xl md:text-2xl text-amber-100 mb-8 font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -44,7 +44,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <Button 
-              className="bg-rizal-gold hover:bg-amber-600 text-rizal-navy font-medium px-8 py-6 text-lg" 
+              className="bg-amber-500 hover:bg-amber-600 text-rizal-navy font-medium px-8 py-6 text-lg" 
               asChild
             >
               <motion.a 
@@ -57,7 +57,7 @@ const HeroSection = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="border-white text-white hover:bg-white/10 font-medium px-8 py-6 text-lg"
+              className="border-amber-400 text-amber-300 hover:bg-amber-500/20 font-medium px-8 py-6 text-lg"
               asChild
             >
               <motion.a 
