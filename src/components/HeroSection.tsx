@@ -10,7 +10,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
           backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/b/b0/Jose_Rizal_self_portrait_1883.jpg')", 
-          filter: "brightness(0.5)"
+          filter: "brightness(0.3)" // Darkened background for better text contrast
         }}
       />
       <div className="container mx-auto px-6 relative z-10">
@@ -30,7 +30,7 @@ const HeroSection = () => {
             <span className="text-amber-400">The Artist Behind The Hero</span>
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-amber-100 mb-8 font-light"
+            className="text-xl md:text-2xl text-amber-100 mb-8 font-light drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
