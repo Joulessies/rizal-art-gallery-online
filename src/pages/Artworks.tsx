@@ -6,6 +6,7 @@ import ArtworksSection from '@/components/ArtworksSection';
 import WrittenWorksSection from '@/components/WrittenWorksSection';
 import FeaturedArtwork from '@/components/FeaturedArtwork';
 import Footer from '@/components/Footer';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Artworks = () => {
   useEffect(() => {
@@ -33,6 +34,13 @@ const Artworks = () => {
           <p className="mt-6 text-gray-600 max-w-2xl mx-auto font-serif">
             This collection features both the artistic and literary works of José Rizal, showcasing his talent and vision beyond his historical significance.
           </p>
+          
+          <Tabs defaultValue="artworks" className="mt-8 max-w-2xl mx-auto">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="artworks">Visual Arts</TabsTrigger>
+              <TabsTrigger value="literature">Literary Works</TabsTrigger>
+            </TabsList>
+          </Tabs>
         </motion.div>
       </motion.div>
       <motion.main
@@ -40,9 +48,15 @@ const Artworks = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <ArtworksSection />
-        <WrittenWorksSection />
-        <FeaturedArtwork />
+        <Tabs defaultValue="artworks" className="container mx-auto px-6">
+          <TabsContent value="artworks">
+            <ArtworksSection />
+            <FeaturedArtwork />
+          </TabsContent>
+          <TabsContent value="literature">
+            <WrittenWorksSection />
+          </TabsContent>
+        </Tabs>
       </motion.main>
       <Footer />
     </div>
