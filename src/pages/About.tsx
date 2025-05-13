@@ -16,7 +16,7 @@ const About = () => {
     <div className="min-h-screen paper-texture">
       <Navbar />
       <motion.div
-        className="container mx-auto px-6 py-12"
+        className="container mx-auto px-4 sm:px-6 py-8 sm:py-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -25,9 +25,9 @@ const About = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="museum-heading text-4xl md:text-5xl mb-4 text-rizal-navy">The Artist</h1>
+          <h1 className="museum-heading text-3xl sm:text-4xl md:text-5xl mb-4 text-rizal-navy">The Artist</h1>
           <div className="h-0.5 w-24 bg-rizal-gold mx-auto"></div>
         </motion.div>
         
@@ -36,10 +36,10 @@ const About = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-4xl mx-auto mb-16"
+          className="max-w-4xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="quote-block py-8 px-6">
-            <p className="text-xl md:text-2xl mb-4">
+          <div className="quote-block py-6 sm:py-8 px-4 sm:px-6">
+            <p className="text-lg sm:text-xl md:text-2xl mb-4">
               "As the traveler who ascends a mountain and finds himself at the top in the midst of a vast sea of clouds rising up below him, so with my freed mind I behold at my feet the peoples and their institutions."
             </p>
             <p className="text-right text-gray-600">— From "The Social Cancer" (Noli Me Tángere)</p>
@@ -54,25 +54,25 @@ const About = () => {
         <AboutSection />
         
         {/* Literary Works Brief Section */}
-        <section className="bg-rizal-cream py-20">
-          <div className="container mx-auto px-6">
+        <section className="bg-rizal-cream py-12 sm:py-20">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div 
-              className="text-center mb-16"
+              className="text-center mb-10 sm:mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
               <div className="inline-block p-3 bg-rizal-navy rounded-full mb-6">
-                <BookOpen className="h-8 w-8 text-rizal-gold" />
+                <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-rizal-gold" />
               </div>
-              <h2 className="text-4xl font-serif font-bold mb-4 text-rizal-navy">Literary Genius</h2>
-              <p className="text-lg max-w-3xl mx-auto text-gray-700">
+              <h2 className="text-3xl sm:text-4xl font-serif font-bold mb-4 text-rizal-navy">Literary Genius</h2>
+              <p className="text-base sm:text-lg max-w-3xl mx-auto text-gray-700">
                 While Rizal's visual art showcased remarkable talent, his literary works cemented his legacy as one of the greatest Filipino intellectuals.
               </p>
             </motion.div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {[
                 {
                   title: "Noli Me Tángere",
@@ -104,7 +104,7 @@ const About = () => {
                   className="bg-white rounded-lg shadow-md overflow-hidden"
                 >
                   <div className="border-b-4 border-rizal-gold"></div>
-                  <div className="p-6">
+                  <div className="p-4 sm:p-6">
                     <h3 className="text-xl font-serif font-bold text-rizal-navy mb-1">{work.title}</h3>
                     <p className="text-sm text-rizal-gold font-medium mb-3">{work.year}</p>
                     <p className="text-gray-700">{work.description}</p>
@@ -118,7 +118,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mt-12"
+              className="text-center mt-10 sm:mt-12"
             >
               <a href="/artworks" className="inline-flex items-center text-rizal-navy hover:text-rizal-gold transition-colors font-medium">
                 <span>Explore Rizal's complete portfolio of works</span>

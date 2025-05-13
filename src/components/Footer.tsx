@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-rizal-navy text-white pt-16 pb-8">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-rizal-navy text-white pt-10 sm:pt-16 pb-6 sm:pb-8">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="font-serif text-2xl font-bold mb-6 inline-block">
+            <Link to="/" className="font-serif text-xl sm:text-2xl font-bold mb-4 sm:mb-6 inline-block">
               <span className="text-rizal-gold">Rizal</span>
               <span className="mx-1">|</span>
               <span className="text-white">The Artist</span>
@@ -22,7 +22,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div className="col-span-1">
             <h3 className="font-serif text-lg font-bold mb-4 text-rizal-gold">Explore</h3>
             <ul className="space-y-3">
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a></li>
@@ -31,7 +31,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-1">
             <h3 className="font-serif text-lg font-bold mb-4 text-rizal-gold">Resources</h3>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">References</a></li>
