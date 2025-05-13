@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from "@/components/ui/card";
@@ -169,7 +168,6 @@ const ArtworksSection = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
 
       <Dialog open={!!selectedArtwork} onOpenChange={() => setSelectedArtwork(null)}>
         {selectedArtwork && (
