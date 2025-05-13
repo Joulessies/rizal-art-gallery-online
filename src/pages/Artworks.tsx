@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import ArtworksSection from '@/components/ArtworksSection';
@@ -9,10 +9,16 @@ import Footer from '@/components/Footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Artworks = () => {
+  const [activeTab, setActiveTab] = useState("artworks");
+  
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
   }, []);
+  
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+  };
   
   return (
     <div className="min-h-screen paper-texture">
@@ -35,7 +41,12 @@ const Artworks = () => {
             This collection features both the artistic and literary works of José Rizal, showcasing his talent and vision beyond his historical significance.
           </p>
           
-          <Tabs defaultValue="artworks" className="mt-8 max-w-2xl mx-auto">
+          <Tabs 
+            defaultValue={activeTab} 
+            value={activeTab}
+            onValueChange={handleTabChange}
+            className="mt-8 max-w-2xl mx-auto"
+          >
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="artworks">Visual Arts</TabsTrigger>
               <TabsTrigger value="literature">Literary Works</TabsTrigger>
@@ -48,7 +59,11 @@ const Artworks = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <Tabs defaultValue="artworks" className="container mx-auto px-6">
+        <Tabs 
+          value={activeTab} 
+          onValueChange={handleTabChange}
+          className="container mx-auto px-6"
+        >
           <TabsContent value="artworks">
             <ArtworksSection />
             <FeaturedArtwork />

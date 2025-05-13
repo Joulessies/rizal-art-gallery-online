@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, X } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import LiteraryWorksPagination from './LiteraryWorksPagination';
 
 interface WrittenWork {
   id: number;
@@ -107,11 +108,25 @@ const WrittenWorksSection = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedWork, setSelectedWork] = useState<WrittenWork | null>(null);
   const [activeTab, setActiveTab] = useState<string>('overview');
+  const [currentPage, setCurrentPage] = useState(1);
+  const worksPerPage = 6;
   
   const filteredWorks = selectedCategory === 'all' 
     ? writtenWorks 
     : writtenWorks.filter(work => work.category === selectedCategory);
 
+  // Calculate pagination
+  const indexOfLastWork = currentPage * worksPerPage;
+  const indexOfFirstWork = indexOfLastWork - worksPerPage;
+  const currentWorks = filteredWorks.slice(indexOfFirstWork, indexOfLastWork);
+  const totalPages = Math.ceil(filteredWorks.length / worksPerPage);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    // Scroll to top of works section
+    window.scrollTo({ top: document.getElementById('written-works')?.offsetTop || 0, behavior: 'smooth' });
+  };
+  
   const openWorkDetails = (work: WrittenWork) => {
     setSelectedWork(work);
     setDialogOpen(true);
@@ -119,7 +134,7 @@ const WrittenWorksSection = () => {
   };
   
   return (
-    <section className="py-16 bg-white paper-texture">
+    <section id="written-works" className="py-16 bg-white paper-texture">
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-12"
@@ -144,35 +159,50 @@ const WrittenWorksSection = () => {
             <Button 
               variant="outline" 
               className={`border-rizal-navy hover:bg-rizal-navy hover:text-white ${selectedCategory === 'all' ? 'bg-rizal-navy text-white' : 'text-rizal-navy'}`}
-              onClick={() => setSelectedCategory('all')}
+              onClick={() => {
+                setSelectedCategory('all');
+                setCurrentPage(1);
+              }}
             >
               All Works
             </Button>
             <Button 
               variant="outline" 
               className={`border-rizal-navy hover:bg-rizal-navy hover:text-white ${selectedCategory === 'novel' ? 'bg-rizal-navy text-white' : 'text-rizal-navy'}`}
-              onClick={() => setSelectedCategory('novel')}
+              onClick={() => {
+                setSelectedCategory('novel');
+                setCurrentPage(1);
+              }}
             >
               Novels
             </Button>
             <Button 
               variant="outline" 
               className={`border-rizal-navy hover:bg-rizal-navy hover:text-white ${selectedCategory === 'poetry' ? 'bg-rizal-navy text-white' : 'text-rizal-navy'}`}
-              onClick={() => setSelectedCategory('poetry')}
+              onClick={() => {
+                setSelectedCategory('poetry');
+                setCurrentPage(1);
+              }}
             >
               Poetry
             </Button>
             <Button 
               variant="outline" 
               className={`border-rizal-navy hover:bg-rizal-navy hover:text-white ${selectedCategory === 'essay' ? 'bg-rizal-navy text-white' : 'text-rizal-navy'}`}
-              onClick={() => setSelectedCategory('essay')}
+              onClick={() => {
+                setSelectedCategory('essay');
+                setCurrentPage(1);
+              }}
             >
               Essays
             </Button>
             <Button 
               variant="outline" 
               className={`border-rizal-navy hover:bg-rizal-navy hover:text-white ${selectedCategory === 'play' ? 'bg-rizal-navy text-white' : 'text-rizal-navy'}`}
-              onClick={() => setSelectedCategory('play')}
+              onClick={() => {
+                setSelectedCategory('play');
+                setCurrentPage(1);
+              }}
             >
               Plays
             </Button>
@@ -180,7 +210,7 @@ const WrittenWorksSection = () => {
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredWorks.map((work, index) => (
+          {currentWorks.map((work, index) => (
             <motion.div
               key={work.id}
               initial={{ opacity: 0, y: 20 }}
@@ -240,6 +270,17 @@ const WrittenWorksSection = () => {
           </div>
         )}
         
+        {/* Pagination Component */}
+        {filteredWorks.length > worksPerPage && (
+          <div className="flex justify-center mt-12">
+            <LiteraryWorksPagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        )}
+        
         <motion.div 
           className="text-center mt-16"
           initial={{ opacity: 0 }}
@@ -249,7 +290,10 @@ const WrittenWorksSection = () => {
         >
           <Button 
             className="bg-rizal-gold hover:bg-amber-600 text-rizal-navy px-8 py-6"
-            onClick={() => setSelectedCategory('all')}
+            onClick={() => {
+              setSelectedCategory('all');
+              setCurrentPage(1);
+            }}
           >
             Explore All Literary Works
           </Button>
