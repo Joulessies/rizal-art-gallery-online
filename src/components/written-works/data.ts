@@ -1,4 +1,3 @@
-
 import { WrittenWork } from './types';
 
 export const writtenWorks: WrittenWork[] = [
@@ -68,9 +67,9 @@ export const writtenWorks: WrittenWork[] = [
     year: "1890",
     description: "An essay challenging the Spanish perception that Filipinos are inherently lazy, arguing that any apparent indolence is a product of colonial oppression.",
     category: 'essay',
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Jose_Rizal_in_Paris.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=1770",
     fullText: "In this essay, Rizal addresses the common Spanish colonial accusation that Filipinos are inherently indolent or lazy. He systematically analyzes this claim from historical, social, and economic perspectives. Rizal begins by acknowledging that there is some truth to the observation that many Filipinos appear to lack industry, but he argues that this is not an inherent racial characteristic. Instead, he attributes this \"indolence\" to several factors: the tropical climate, which naturally requires less constant labor than colder regions; the devastating effects of Spanish colonial policies, which discouraged entrepreneurship and initiative; and the lack of national sentiment under colonial rule, which provided little motivation for hard work when the fruits of labor would benefit foreign rulers. Rizal cites historical evidence that pre-colonial Filipinos were actually quite industrious, engaging in agriculture, trade, and crafts. He argues that Spanish colonization disrupted these patterns through monopolistic economic policies, forced labor, and a repressive social system.",
-    analysis: "\"La Indolencia de los Filipinos\" is a masterful refutation of one of the key justifications for continued colonial rule: the supposed incapacity of Filipinos for self-government due to their \"natural laziness.\" Through careful argumentation and historical evidence, Rizal turns this accusation on its head, demonstrating that any observed indolence is actually the result of colonial oppression rather than its justification. This essay demonstrates Rizal's skill in using the tools of rational argument and scientific analysis to challenge colonial narratives. It also reflects his belief that understanding the true causes of social problems was the first step toward solving them."
+    analysis: "\"La Indolencia de los Filipinos\" is a masterful refutation of one of the key justifications for continued colonial rule: the supposed incapacity of Filipinos for self-government due to their \"natural laziness.\" Through careful argumentation and historical evidence, Rizal turns this accusation on its head, demonstrating that any observed indolence is actually the result of colonial oppression rather than its justification. This essay demonstrates Rizal's skill in using the tools of rational argument and scientific analysis to challenge colonial narratives. It also reflects the strong influence of Catholic education on the young Rizal, an influence that he would later critique but never entirely abandon."
   },
   {
     id: 8,
@@ -78,7 +77,7 @@ export const writtenWorks: WrittenWork[] = [
     year: "1876",
     description: "One of Rizal's early dramatic works, a play about the life of Saint Eustace, written during his student days.",
     category: 'play',
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Jose_rizal_ateneo.jpg/800px-Jose_rizal_ateneo.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1770",
     fullText: "This drama, written when Rizal was only fifteen years old, tells the story of Saint Eustace, a Roman general who converts to Christianity after seeing a vision of a cross between a stag's antlers while hunting. After his conversion, Eustace faces numerous trials, including the loss of his wealth, the kidnapping of his wife and sons, and eventually martyrdom under the Emperor Hadrian. The play follows the traditional structure of religious dramas popular in the Philippines during the Spanish colonial period, with an emphasis on the virtues of faith, perseverance, and sacrifice.",
     analysis: "\"San Euistaquio, Mártir\" is significant primarily as an early example of Rizal's literary talents and his education in the Spanish Catholic tradition. Written during his studies at the Ateneo Municipal de Manila, the play demonstrates his early mastery of Spanish and his familiarity with hagiographic literature. While not as politically significant as his later works, this play shows the young Rizal engaging with themes of faith, suffering, and moral integrity that would continue to feature in his more mature writings. It also reflects the strong influence of Catholic education on the young Rizal, an influence that he would later critique but never entirely abandon."
   }
