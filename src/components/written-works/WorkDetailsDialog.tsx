@@ -3,6 +3,7 @@ import React from 'react';
 import { X } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { WrittenWork } from './types';
 
 interface WorkDetailsDialogProps {
@@ -50,11 +51,18 @@ const WorkDetailsDialog = ({ open, onOpenChange, work, activeTab, onTabChange }:
               
               {work.imageUrl && (
                 <div className="mt-6">
-                  <img 
-                    src={work.imageUrl} 
-                    alt={work.title} 
-                    className="max-h-60 mx-auto object-contain"
-                  />
+                  <AspectRatio ratio={16/9} className="max-w-sm mx-auto">
+                    <img 
+                      src={work.imageUrl} 
+                      alt={work.title} 
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = "https://images.unsplash.com/photo-1639671224447-791fd1e746ea?q=80&w=1974";
+                      }}
+                    />
+                  </AspectRatio>
                 </div>
               )}
             </div>

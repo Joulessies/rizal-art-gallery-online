@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface Artwork {
   id: number;
@@ -46,7 +47,7 @@ const artworks: Artwork[] = [
     id: 4,
     title: "Portrait of Father Guerrico",
     year: "1885",
-    image: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/jose-rizal-celestial-images.jpg",
+    image: "https://www.joserizal.ph/images/paintings/portrait-of-father-guerrico.jpg",
     description: "A detailed portrait of the Jesuit priest who was one of Rizal's teachers at the Ateneo Municipal de Manila, showing his skill in portraiture.",
     medium: "Charcoal on paper",
     location: "Ateneo de Manila University"
@@ -146,15 +147,22 @@ const ArtworksSection = () => {
                 onClick={() => setSelectedArtwork(artwork)}
               >
                 <motion.div 
-                  className="h-64 w-full overflow-hidden"
+                  className="relative h-64 w-full overflow-hidden"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img 
-                    src={artwork.image} 
-                    alt={artwork.title} 
-                    className="h-full w-full object-cover"
-                  />
+                  <AspectRatio ratio={4/3} className="bg-gray-100">
+                    <img 
+                      src={artwork.image} 
+                      alt={artwork.title} 
+                      className="h-full w-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=1770";
+                      }}
+                    />
+                  </AspectRatio>
                 </motion.div>
                 <div className="p-5">
                   <h3 className="text-xl font-serif font-bold">{artwork.title}</h3>
@@ -185,11 +193,18 @@ const ArtworksSection = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="overflow-hidden rounded-md">
-                <img 
-                  src={selectedArtwork.image} 
-                  alt={selectedArtwork.title}
-                  className="w-full h-full object-cover" 
-                />
+                <AspectRatio ratio={4/3} className="bg-gray-100">
+                  <img 
+                    src={selectedArtwork.image} 
+                    alt={selectedArtwork.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=1770";
+                    }}
+                  />
+                </AspectRatio>
               </div>
               <div>
                 <p className="text-gray-700 mb-4">{selectedArtwork.description}</p>

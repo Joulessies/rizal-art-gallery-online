@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const listItemVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -73,22 +74,29 @@ const FeaturedArtwork = () => {
             </motion.div>
           </motion.div>
           <motion.div 
-            className="relative h-96 md:h-[500px] overflow-hidden rounded-lg"
+            className="relative overflow-hidden rounded-lg"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.02 }}
           >
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Triumph_of_Science_over_Death.jpg/640px-Triumph_of_Science_over_Death.jpg" 
-              alt="The Triumph of Science Over Death by José Rizal" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <div className="text-sm text-rizal-gold">1890, Clay Sculpture</div>
-              <h3 className="font-serif font-semibold text-xl">The Triumph of Science Over Death</h3>
-            </div>
+            <AspectRatio ratio={3/4} className="bg-gray-900">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Triumph_of_Science_over_Death.jpg/640px-Triumph_of_Science_over_Death.jpg" 
+                alt="The Triumph of Science Over Death by José Rizal" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=1770";
+                }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <div className="text-sm text-rizal-gold">1890, Clay Sculpture</div>
+                <h3 className="font-serif font-semibold text-xl">The Triumph of Science Over Death</h3>
+              </div>
+            </AspectRatio>
           </motion.div>
         </div>
       </div>

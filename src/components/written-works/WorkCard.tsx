@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { WrittenWork } from './types';
 
 interface WorkCardProps {
@@ -23,11 +24,18 @@ const WorkCard = ({ work, onReadMore, index }: WorkCardProps) => {
       <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 border-t-0 group">
         {work.imageUrl ? (
           <div className="relative h-56 overflow-hidden">
-            <img 
-              src={work.imageUrl} 
-              alt={work.title} 
-              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-            />
+            <AspectRatio ratio={16/9} className="bg-gray-100">
+              <img 
+                src={work.imageUrl} 
+                alt={work.title} 
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "https://images.unsplash.com/photo-1639671224447-791fd1e746ea?q=80&w=1974";
+                }}
+              />
+            </AspectRatio>
             <div className="absolute top-0 left-0 bg-rizal-gold py-1 px-3 text-xs text-white font-medium">
               {work.year}
             </div>
