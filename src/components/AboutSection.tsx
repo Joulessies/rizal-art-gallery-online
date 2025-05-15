@@ -284,6 +284,21 @@ const AboutSection = () => {
           </p>
         </motion.div>
 
+        {/* Added the Artistic Legacy image as requested */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <img 
+            src="/lovable-uploads/5b5dbf9e-fd3d-495b-9800-0503b80c2f72.png" 
+            alt="Rizal's Artistic Legacy" 
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+        </motion.div>
+
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
