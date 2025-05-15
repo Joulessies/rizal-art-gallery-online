@@ -75,3 +75,4 @@ const WorkCard = ({ work, onReadMore, index }: WorkCardProps) => {
 };
 
 export default WorkCard;
+
